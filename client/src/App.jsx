@@ -5,6 +5,8 @@ import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
 import Header from "./Components/Header"
 import FooterComp from "./Components/Footer"
+import Dashboard from "./pages/Dashboard"
+import PrivateRoute from "./Components/PrivateRoute"
 
 function App() {
 
@@ -16,6 +18,9 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/dashboard' element={<Dashboard />} />
+        </Route>
    </Routes>
    <FooterComp/>
    </BrowserRouter>
