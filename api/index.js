@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -15,6 +16,11 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const app =express();
 app.use(express.json());
+
+//cookie parser
+app.use(cookieParser());
+
+
 app.listen(3000,()=>{
     console.log(`Server started at 3000`);
 })
