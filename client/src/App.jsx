@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard"
 import PrivateRoute from "./Components/PrivateRoute"
 import OnlyAdminPrivateRoute from "./Components/OnlyAdminPrivateRoute"
 import CreatePost from "./pages/CreatePost"
+import UpdatePost from "./pages/UpdatePost"
+
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
         </Route>
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path='/create-post' element={<CreatePost />} />
+          <Route path='/update-post/:postId' element={<UpdatePost />} />
         </Route>
    </Routes>
    <FooterComp/>
