@@ -5,9 +5,10 @@
 
 ### Objective:
 The main objectives of this project are to develop a web application that allows users to:
-*  Post the content.  Edit, Delete the posts
- * Track the Posts
- * Like ,Dislike & Comment
+*  Post the content. 
+*   Edit, Delete the posts
+* Track the Posts
+* Like ,Dislike & Comment
   
 ### Scope:
 The project will cover the following features:
@@ -65,7 +66,9 @@ The following resources will be used as references for the project:
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## Requirements
-
+- mongoDB
+- expressjs
+- reactjs
 - nodejs
 - npm
 
@@ -93,15 +96,20 @@ localhost:5173
 ### Output:
 
 
+## SignUp :
+![Output Screen shot](images/signup.png)
 
-## Login :
-![Output Screen shot]()
+## SignIn :
+![Output Screen shot](images/signin.png)
 
 ## Home :
-![Output Screen shot]()
+![Output Screen shot](images/home.png)
+
+## Admin Dashboard :
+![Output Screen shot](images/dashboard.png)
 
 ## Blog Posts:
-![Output Screen shot]()
+![Output Screen shot](images/post.png)
 
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
