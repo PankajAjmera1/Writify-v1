@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 client/src/.env
 client/src/firebase.js
+client/.env
