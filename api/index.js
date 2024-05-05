@@ -6,15 +6,18 @@ import authRoutes from './routes/auth.routes.js'
 import cookieParser from 'cookie-parser';
 import postRoutes from './routes/post.routes.js'
 import commentRoutes from './routes/comment.routes.js'
+import path from 'path'
 
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
-    console.log('Mongo connect')})
+    console.log('MongoDB Atlas connected !!')})
     .catch((err) =>{
         console.log(err);
     })
+
+    const __dirname = path.resolve();
 
 const app =express();
 app.use(express.json());
@@ -39,6 +42,14 @@ app.use('/api/post',postRoutes)
 
 //comment routes    
 app.use('/api/comment',commentRoutes)
+
+
+// Serve static assets if in production
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 
 app.use((err, req, res, next) => {
