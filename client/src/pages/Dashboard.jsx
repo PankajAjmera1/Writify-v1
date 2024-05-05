@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import DashPosts from '../Components/DashPosts.jsx'
 import DashUsers from '../Components/DashUsers.jsx'
 import DashComments from '../Components/DashComments.jsx'
+import DashboardComp from '../Components/DashboardComp.jsx'
 
 
 function Dashboard() {
@@ -35,6 +36,9 @@ function Dashboard() {
 
     {/* comments... */}
     {tab === 'comments' && <DashComments/>}
+
+    {/* dashboard... */}
+    {tab === 'dash' && <DashboardComp />}
   </div>
   )
 }
