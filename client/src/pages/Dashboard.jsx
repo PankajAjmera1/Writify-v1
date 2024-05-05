@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import DashPosts from '../Components/DashPosts.jsx'
 import DashUsers from '../Components/DashUsers.jsx'
-
+import DashComments from '../Components/DashComments.jsx'
 
 
 function Dashboard() {
@@ -32,6 +32,9 @@ function Dashboard() {
 
     {/* users... */}
     {tab === 'users' && <DashUsers/>}
+
+    {/* comments... */}
+    {tab === 'comments' && <DashComments/>}
   </div>
   )
 }
