@@ -114,3 +114,73 @@ export const create = async (req, res, next) => {
       next(error);
     }
   };
+
+
+
+
+
+// Like a post
+export const likePost = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.postId);
+    if (!post.likes.includes(req.user.id)) {
+      post.likes.push(req.user.id);
+      if (post.dislikes.includes(req.user.id)) {
+        post.dislikes.pull(req.user.id);
+      }
+      await post.save();
+      res.status(200).json(post);
+    } else {
+      res.status(400).json({ message: 'You already liked this post' });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Dislike a post
+export const dislikePost = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.postId);
+    if (!post.dislikes.includes(req.user.id)) {
+      post.dislikes.push(req.user.id);
+      if (post.likes.includes(req.user.id)) {
+        post.likes.pull(req.user.id);
+      }
+      await post.save();
+      res.status(200).json(post);
+    } else {
+      res.status(400).json({ message: 'You already disliked this post' });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Share a post
+export const sharePost = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.postId);
+    post.shares += 1;
+    await post.save();
+    res.status(200).json(post);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Favorite a post
+export const favoritePost = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.postId);
+    if (!post.favorites.includes(req.user.id)) {
+      post.favorites.push(req.user.id);
+      await post.save();
+      res.status(200).json(post);
+    } else {
+      res.status(400).json({ message: 'You already favorited this post' });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
