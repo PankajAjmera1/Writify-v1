@@ -120,19 +120,57 @@ export const create = async (req, res, next) => {
 
 
 // Like a post
+// export const likePost = async (req, res, next) => {
+//   try {
+//     const post = await Post.findById(req.params.postId);
+//     if (!post.likes.includes(req.user.id)) {
+//       post.likes.push(req.user.id);
+//       if (post.dislikes.includes(req.user.id)) {
+//         post.dislikes.pull(req.user.id);
+//       }
+//       await post.save();
+//       res.status(200).json(post);
+//     } else {
+//       res.status(400).json({ message: 'You already liked this post' });
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
+// // Dislike a post
+// export const dislikePost = async (req, res, next) => {
+//   try {
+//     const post = await Post.findById(req.params.postId);
+//     if (!post.dislikes.includes(req.user.id)) {
+//       post.dislikes.push(req.user.id);
+//       if (post.likes.includes(req.user.id)) {
+//         post.likes.pull(req.user.id);
+//       }
+//       await post.save();
+//       res.status(200).json(post);
+//     } else {
+//       res.status(400).json({ message: 'You already disliked this post' });
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
+// Like a post
 export const likePost = async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.postId);
-    if (!post.likes.includes(req.user.id)) {
-      post.likes.push(req.user.id);
-      if (post.dislikes.includes(req.user.id)) {
-        post.dislikes.pull(req.user.id);
-      }
-      await post.save();
-      res.status(200).json(post);
+    if (post.likes.includes(req.user.id)) {
+      post.likes.pull(req.user.id); // Remove like
     } else {
-      res.status(400).json({ message: 'You already liked this post' });
+      post.likes.push(req.user.id); // Add like
+      if (post.dislikes.includes(req.user.id)) {
+        post.dislikes.pull(req.user.id); // Ensure dislike is removed
+      }
     }
+    await post.save();
+    res.status(200).json(post);
   } catch (error) {
     next(error);
   }
@@ -142,20 +180,21 @@ export const likePost = async (req, res, next) => {
 export const dislikePost = async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.postId);
-    if (!post.dislikes.includes(req.user.id)) {
-      post.dislikes.push(req.user.id);
-      if (post.likes.includes(req.user.id)) {
-        post.likes.pull(req.user.id);
-      }
-      await post.save();
-      res.status(200).json(post);
+    if (post.dislikes.includes(req.user.id)) {
+      post.dislikes.pull(req.user.id); // Remove dislike
     } else {
-      res.status(400).json({ message: 'You already disliked this post' });
+      post.dislikes.push(req.user.id); // Add dislike
+      if (post.likes.includes(req.user.id)) {
+        post.likes.pull(req.user.id); // Ensure like is removed
+      }
     }
+    await post.save();
+    res.status(200).json(post);
   } catch (error) {
     next(error);
   }
 };
+
 
 // Share a post
 export const sharePost = async (req, res, next) => {

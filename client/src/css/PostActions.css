@@ -1,0 +1,171 @@
+:root {
+    --button-bg: #e0e0e0;
+    --button-bg-hover: #d0d0d0;
+    --button-active-bg: #007bff; /* Blue color for active state */
+    --button-active-color: #fff;
+    --button-disabled-bg: #c0c0c0;
+    --button-text-color: #000;
+    --button-icon-color: #000;
+  }
+  
+  [data-theme='dark'] {
+    --button-bg: #333;
+    --button-bg-hover: #444;
+    --button-active-bg: #0056b3; /* Darker blue for dark mode */
+    --button-active-color: #fff;
+    --button-disabled-bg: #555;
+    --button-text-color: #fff;
+    --button-icon-color: #fff;
+  }
+  
+  .button {
+    background-color: var(--button-bg);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--button-text-color);
+  }
+  
+  .button .icon {
+    font-size: 20px;
+    color: var(--button-icon-color);
+  }
+  
+  .button .count {
+    font-size: 16px;
+  }
+  
+  .button:hover {
+    background-color: var(--button-bg-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button.active {
+    background-color: var(--button-active-bg);
+    color: var(--button-active-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button.active:hover {
+    background-color: var(--button-active-bg);
+  }
+  
+  .button.disabled {
+    background-color: var(--button-disabled-bg);
+    cursor: not-allowed;
+  }
+  
+  .button .icon {
+    transition: transform 0.3s;
+  }
+  
+  .button:hover .icon {
+    transform: scale(1.1);
+  }
+  
+  .button .count {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+ 
+  
+  /* Modal Styles */
+.modal-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 10px;
+    text-align: right;
+  }
+  
+  /* Notification Styles */
+  .notification {
+    background-color: #ffdddd;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .notification-link {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .notification-link:hover {
+    color: #0056b3;
+  }
+  
+  /* Button Styles in Modal */
+  .modal-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .modal-button .icon {
+    font-size: 18px;
+  }
+  
+  .modal-button .count {
+    font-size: 16px;
+  }
+  
+  .modal-button:hover {
+    background-color: #d0d0d0;
+  }
+  
+  .modal-button.active {
+    background-color: #00f2ff;
+    color: #fff;
+  }
+  
+  /* Modal Layout */
+  .modal-body .flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal-body .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .modal-body .button-container .modal-button {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+  

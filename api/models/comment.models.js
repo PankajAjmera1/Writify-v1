@@ -1,30 +1,62 @@
+// import mongoose from 'mongoose';
+// import {Schema} from 'mongoose';
+
+// const commentSchema =new Schema({
+//     content: {
+//         type: String,
+//         required: true,
+//       },
+//       postId: {
+//         type: String,
+//         required: true,
+//       },
+//       userId: {
+//         type: String,
+//         required: true,
+//       },
+//       likes: {
+//         type: Array,
+//         default: [],
+//       },
+//       numberOfLikes: {
+//         type: Number,
+//         default: 0,
+//       },
+
+
+// },{timestamps:true})
+
+// export const Comment =mongoose.model('Comment',commentSchema)
+// export default Comment;
+
+
+
 import mongoose from 'mongoose';
-import {Schema} from 'mongoose';
+import { Schema } from 'mongoose';
 
-const commentSchema =new Schema({
-    content: {
-        type: String,
-        required: true,
-      },
-      postId: {
-        type: String,
-        required: true,
-      },
-      userId: {
-        type: String,
-        required: true,
-      },
-      likes: {
-        type: Array,
-        default: [],
-      },
-      numberOfLikes: {
-        type: Number,
-        default: 0,
-      },
+const commentSchema = new Schema({
+  content: {
+    type: String,
+    required: true,
+  },
+  postId: {
+    type: String,
+    required: true,
+  },
+  userId: {
+    type: String,
+    required: true,
+  },
+  likes: {
+    type: Array,
+    default: [],
+  },
+  numberOfLikes: {
+    type: Number,
+    default: 0,
+  },
+  replies: [{ type: Schema.Types.ObjectId, ref: 'Comment' }] // New field for nested comments
+}, { timestamps: true });
 
-
-},{timestamps:true})
-
-export const Comment =mongoose.model('Comment',commentSchema)
+export const Comment = mongoose.model('Comment', commentSchema);
 export default Comment;

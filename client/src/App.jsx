@@ -14,6 +14,7 @@ import PostPage from "./pages/PostPage"
 import ScrollToTop from "./Components/ScrollToTop"
 import Search from "./pages/Search"
 import Projects from "./pages/Projects"
+import './index.css';
 
 
 
