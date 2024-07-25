@@ -1,33 +1,27 @@
-import React from 'react'
+import React from 'react';
 
 function About() {
   return (
-    <div className='min-h-screen flex items-center justify-center'>
-      <div className='max-w-2xl mx-auto p-3 text-center'>
-        <div>
-          <h1 className='text-3xl font font-semibold text-center my-7'>
-            About Writify Blog
-          </h1>
-          <div className='text-md text-gray-500 flex flex-col gap-6'>
-            <p>
-            Welcome to Writify's Blog! This blog was created by Sahand Ghavidel as a personal project to share his thoughts and ideas with the world. Sahand is a passionate developer who loves to write about technology, coding, and everything in between.
-            </p>
-
-            <p>
-            On this blog, you'll find weekly articles and tutorials on topics such as web development, software engineering, and programming languages. Sahand is always learning and exploring new technologies, so be sure to check back often for new content!
-            </p>
-
-            <p>
-              We encourage you to leave comments on our posts and engage with
-              other readers. You can like other people's comments and reply to
-              them as well. We believe that a community of learners can help
-              each other grow and improve.
-            </p>
-          </div>
+    <div className='min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900'>
+      <div className='max-w-3xl mx-auto p-8 text-center bg-white dark:bg-gray-800 rounded-lg shadow-md'>
+        <h1 className='text-4xl font-extrabold text-teal-600 dark:text-teal-400 mb-6'>
+          Unleash Your Voice with Writify
+        </h1>
+        <div className='text-lg text-gray-700 dark:text-gray-300 space-y-6'>
+          <p>
+            Welcome to Writify, the ultimate platform for aspiring writers, passionate bloggers, and anyone with a story to tell. Our mission is to empower you to express your thoughts, share your knowledge, and connect with like-minded individuals from around the world.
+          </p>
+          <p>
+            At Writify, we believe that everyone has a unique perspective to offer. Whether you're an expert in your field or simply have a burning desire to share your experiences, our user-friendly interface makes it easy to create and publish your content. With our intuitive tools and customizable templates, you can craft visually stunning articles that captivate your audience and leave a lasting impression.
+          </p>
+          <p>
+            But Writify is more than just a blogging platform - it's a thriving community of writers, thinkers, and dreamers. By joining our network, you'll have the opportunity to engage with readers, receive feedback on your work, and even collaborate with other writers on exciting projects. Our platform is designed to foster connections, inspire creativity, and help you grow as a writer.
+          </p>
+         
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;
